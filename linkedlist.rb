@@ -26,16 +26,15 @@ class Stack
 
     
     def push(value)
-    #     if @data == nil
-    #        return "nil"
-    #     else 
-             @data = LinkedListNode.new(value, @data)
-    #     end
+        @data = LinkedListNode.new(value, @data)
     end
 
     def pop
         out = @data.value
         @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
+        if @data.next_node.value.nil?  
+
+            
         puts out
     end
 
@@ -60,10 +59,8 @@ def reverse_list(list)
     new_list = Stack.new
 
     while list
-        current_value = list.pop
-        puts current_value
-        new_list.push(current_value)
-        #list = list.next_node
+        new_list.push(list.next_node)
+        list = list.next_node
     end
 
     return new_list
@@ -77,19 +74,7 @@ print_values(node3)
 
 puts "-------"
 
-#revlist = reverse_list(node3)
+revlist = reverse_list(node3)
 
-#print_values(revlist)
+print_values(revlist)
 
-stack = Stack.new
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
-stack.push(5)
-stack.push(6)
-stack.push(7)
-stack.pop
-#stack.pop
-reverse_list = reverse_list(stack)
-print_values(stack)
