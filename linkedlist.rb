@@ -32,9 +32,6 @@ class Stack
     def pop
         out = @data.value
         @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
-        if @data.next_node.value.nil?  
-
-            
         puts out
     end
 
@@ -63,7 +60,7 @@ def reverse_list(list)
         list = list.next_node
     end
 
-    return new_list
+    return new_list.data
 end
 
 node1 = LinkedListNode.new(37)
@@ -77,4 +74,5 @@ puts "-------"
 revlist = reverse_list(node3)
 
 print_values(revlist)
+
 
